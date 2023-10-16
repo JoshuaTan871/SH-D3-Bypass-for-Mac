@@ -8,28 +8,28 @@ CYAN='\033[1;36m'
 NC='\033[0m'
 
 echo -e "${CYAN}*-------------------*---------------------*${NC}"
-echo -e "${YEL}* MDM Patch Code made by yours truly:    *${NC}"
+echo -e "${YEL}*    MDM Patch Code by yours truly:    *${NC}"
 echo -e "${RED}*       SH@D3 @ iaintthatracist          *${NC}"
 echo -e "${CYAN}*-------------------*---------------------*${NC}"
 echo ""
 PS3='Method for MDM Bypass: '
-options=("Autoypass on Recovery" "Reboot")
+options=("Bypass MDM with new user" "Exit SH@D3")
 select opt in "${options[@]}"; do
 	case $opt in
-	"Autoypass on Recovery")
-		echo -e "${GRN}Bypass on Recovery"
+	"Bypass MDM with new user")
+		echo -e "${GRN}Bypassing MDM and creating new user..."
 		if [ -d "/Volumes/Macintosh HD - Data" ]; then
    			diskutil rename "Macintosh HD - Data" "Data"
 		fi
-		echo -e "${GRN}Create a new user"
-        echo -e "${BLU}Press Enter to continue, Note: Leaving it blank will default to the automatic user"
+		echo -e "${GRN}Create a new user for your MDM-bypassed Mac"
+        echo -e "${BLU}Press Enter to continue... (Leaving it blank will default to the automatic user)"
   		echo -e "Enter the username (Default: Apple))"
 		read realName
   		realName="${realName:= Apple}"
-    	echo -e "${BLUE}Inset username ${RED}WRITE USER WITHOUT SPACES ${GRN}"
+    	echo -e "${BLUE}Type username ${RED} ENTER USERNAME WITH NO SPACES ${GRN}"
       	read username
 		username="${username:=Apple}"
-  		echo -e "${BLUE}Enter the password you want to use: (default: 1234)"
+  		echo -e "${BLUE}Enter the password you want to use: (default password: 1234)"
     	read passw
       	passw="${passw:=1234}"
 		dscl_path='/Volumes/Data/private/var/db/dslocal/nodes/Default' 
